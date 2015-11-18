@@ -1,0 +1,31 @@
+<h1>Update a product</h1>
+<%= form_tag "/product/#{@products.id}", method: :patch do %>
+  <div>
+    <%= label_tag :name %>
+    <%= text_field_tag(:name, @products.name) %>
+  </div>
+  <div>
+    <%= label_tag :price %>
+    <%= text_field_tag(:price, @products.price) %>
+  </div>
+  <div>
+    <%= label_tag :image %>
+    <%= text_field_tag(:image, @products.image) %>
+  </div>
+  <div>
+    <%= label_tag :description %>
+    <%= text_field_tag(:description, @products.description) %>
+  </div>
+  <div>
+    <%= label_tag :size %>
+    <%= text_field_tag(:size, @products.size) %>
+  </div>
+  <div>
+    <%= label_tag :color %>
+    <%= text_field_tag(:color, @products.color) %>
+  </div>
+  <div>
+  <%= button_tag 'Send' %>
+  <%= link_to 'delete', "/product/#{@products.id}/", method: :delete %>
+
+  <% end %>

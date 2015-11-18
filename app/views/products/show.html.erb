@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src= <%= @products.image %> alt = <%= @products.name %> >
+      <div class="caption">
+        <h3>Thumbnail label</h3>
+        <p>...</p>
+        <p><button type="button" onclick="history.go(-1); return false;" class="btn btn-primary" role="button">Back</button> 
+        <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<h1><%= @products.name %></h1> 
+<button type = "button" onclick = "history.go(-1); return false;">Go Back</button>
+<div class = "container-fluid">
+  <div class = "row">
+    <div class = "col-lg-6">
+      <img src= <%= @products.image %> alt = <%= @products.name %> >
+    </div>
+  
+    <div class = "row">
+    <div class = "col-lg-6">
+      <p>Price: <%= @products.price %></p>
+      <p>Product Description: <%= @products.description %></p>
+      <p>Size: <%= @products.size %></p>
+      <p>Color: <%= @products.color %></p>
+    </div>
+  </div>
+</div>

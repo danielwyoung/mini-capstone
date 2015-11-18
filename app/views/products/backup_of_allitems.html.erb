@@ -1,0 +1,11 @@
+backup_of_allitems.html.erb
+<h1>All the products</h1>
+<p><% @products.each do |product| %></p>
+  <p>Item ID <%= product.id %>
+  <p>Product Name: <%= product.name %></p>
+  <p>Price: <%= product.price %></p>
+  <p>Product Description: <%= product.descriptioin %></p>
+  <p><img src = <%= product.image %> height = "250" width = "250"></p>
+  <p>Size: <%= product.size %></p>
+  <p>Color: <%= product.color %></p>
+  <% end %>
