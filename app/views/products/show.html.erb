@@ -1,10 +1,13 @@
 <div class="row">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <img src= <%= @products.image %> alt = <%= @products.name %> >
+      <h3><%= @products.sale_message %></h3>
+      <% @products.images.each do |image_object| %>
+        <img src= <%= image_object.image_url %> alt = <%= @products.name %> >
+      <% end %>
       <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
+       <p>Sales Tax  <%= @products.tax %></p>
+       <p>Total Price <%= @products.total_price %></p>
         <p><button type="button" onclick="history.go(-1); return false;" class="btn btn-primary" role="button">Back</button> 
         <a href="#" class="btn btn-default" role="button">Button</a></p>
       </div>
@@ -12,16 +15,27 @@
   </div>
 </div>
 
+<h1>Checkout</h1>
+<%= form_tag '/orders/', method: :post do %>
+  <div>
+    <%= label_tag :quantity %>
+    <%= text_field_tag(:quantity) %>
+  </div>
+ <%= button_tag 'But Now!' %>
+ <% end %>
 
 
 
 
-<h1><%= @products.name %></h1> 
+
+<!-- <h1><%= @products.name %></h1> 
 <button type = "button" onclick = "history.go(-1); return false;">Go Back</button>
 <div class = "container-fluid">
   <div class = "row">
     <div class = "col-lg-6">
-      <img src= <%= @products.image %> alt = <%= @products.name %> >
+      <% @products.images.each do |image_object| %>
+        <img src= <%= image_object.image_url %> alt = <%= @products.name %> >
+      <% end %>
     </div>
   
     <div class = "row">
@@ -32,4 +46,4 @@
       <p>Color: <%= @products.color %></p>
     </div>
   </div>
-</div>
+</div> -->

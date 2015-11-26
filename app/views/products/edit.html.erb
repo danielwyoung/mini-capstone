@@ -9,10 +9,6 @@
     <%= text_field_tag(:price, @products.price) %>
   </div>
   <div>
-    <%= label_tag :image %>
-    <%= text_field_tag(:image, @products.image) %>
-  </div>
-  <div>
     <%= label_tag :description %>
     <%= text_field_tag(:description, @products.description) %>
   </div>
@@ -23,6 +19,10 @@
   <div>
     <%= label_tag :color %>
     <%= text_field_tag(:color, @products.color) %>
+  </div>
+  <div>
+    <%= label_tag :supplier_id %>
+    <%= text_field_tag(:supplier_id, @products.supplier_id) %>
   </div>
   <div>
   <%= button_tag 'Send' %>

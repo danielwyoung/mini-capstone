@@ -56,11 +56,12 @@
         <p>Product Description: <%= product.description %></p>
         <p>Size: <%= product.size %></p>
         <p>Color: <%= product.color %></p>
+        <h2><%= product.supplier.name %></h2>
         <%= link_to 'Details', "/product/ #{product.id}" %>
         <%= link_to 'Edit', "/product/ #{product.id}/edit" %>
         <p>
           <a href = "/product/<%= product.id %>">
-            <img src = <%= product.image %> height = "250" width = "250">
+            <img src = <%= product.images.first.image_url %> height = "250" width = "250">
           </a>
         </p>
       </div>

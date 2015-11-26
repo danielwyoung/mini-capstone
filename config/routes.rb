@@ -1,11 +1,20 @@
 Rails.application.routes.draw do
+  devise_for :users
   get '/' => 'products#index'
-  get 'product/new' => 'products#new'
-  post 'product' => 'products#create'
-  get 'product/:id' => 'products#show'
-  get 'product/:id/edit' => 'products#edit'
-  patch 'product/:id' => 'products#update'
-  delete 'product/:id' => 'products#destroy'
+  get '/product' => 'products#index'
+  get '/product/new' => 'products#new'
+  post '/product' => 'products#create'
+  get '/product/:id' => 'products#show'
+  get '/product/:id/edit' => 'products#edit'
+  patch '/product/:id' => 'products#update'
+  delete '/product/:id' => 'products#destroy'
+
+
+
+
+
+  post '/orders' =>'orders#create'
+  get '/orders/:id' => 'orders#show'
 resources :products
 
 
