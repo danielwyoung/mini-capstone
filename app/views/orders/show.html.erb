@@ -1,2 +1,11 @@
-<p>Order ID<%= @order.id %></p>
-<p>Order Qty<%= @order.quantity %></p>
+<h2>Order Information</h2>
+<h3>Order ID:<%= @order.id %></h3>
+<h3>Customer: <%= @order.user.email %></h3>
+<h3>Product Name:<%= @order.product.name %></h3>
+<img src = <%= @order.product.images.first.image_url %> height = "250" width = "250">
+<h3>Price:<%= number_to_currency(@order.product.price) %></h3>
+<h3>Quantity:<%= @order.quantity %></h3>
+<h3>Subtotal:<%= number_to_currency(@order.subtotal) %></h3>
+<h3>Tax:<%= number_to_currency(@order.tax) %></h3>
+<h3>Total:<%= number_to_currency(@order.total) %></h3>
+

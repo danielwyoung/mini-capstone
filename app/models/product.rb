@@ -4,18 +4,21 @@ class Product < ActiveRecord::Base
   has_many :orders
   has_many :images
 
+  SALES_TAX = 0.09
+  DISCOUNT_THRESHOLD = 4
+
   def sale_message
-    if price.to_i < 4
+    if price.to_i < DISCOUNT_THRESHOLD
     "Discount Item!"
     else "On Sale!"
     end
   end
 
     def tax
-      price.to_f * 0.09
+      price.to_f * SALES_TAX
     end
 
     def total_price
-      price.to_f * 1.09
+      price.to_i + tax
     end
 end
