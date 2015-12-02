@@ -2,6 +2,12 @@
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <h3><%= @products.sale_message %></h3>
+      <h4>Categories:</h4>
+        <% @products.categories.each do |category| %>
+        <ul>
+          <li><%= category.name %></li>
+        </ul> 
+        <% end %>
       <div class="caption">
         <p>Price <%= number_to_currency (@products.price) %></p>
         <p>Sales Tax  <%= number_to_currency (@products.tax) %></p>
