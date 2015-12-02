@@ -1,0 +1,6 @@
+   <% @carted_products.each do |carted_product| %>
+   <h3>Item: </h3><%= carted_product.product.name %>
+   <h3>Price: </h3><%= carted_product.product.price %>
+   <h3>Quantity: </h3><%= carted_product.quantity %>
+   <div> &nbsp </div>
+   <% end %>
