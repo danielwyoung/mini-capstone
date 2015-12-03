@@ -1,0 +1,19 @@
+<h2>Order details:</h2>
+<% @carted_products.each do |carted_product| %>
+  <div>
+    <strong>Item: </strong><%= carted_product.product.name %>
+  </div>
+  <div>
+    <strong>Price: </strong><%= carted_product.product.price %>
+  </div>
+  <div>
+    <strong>Quantity: </strong><%= carted_product.quantity %>
+  <div> &nbsp </div>
+<% end %>
+<div>&nbsp</div>
+<div>Subtotal: <%= number_to_currency(@dsubtotal) %></div>
+<div>Tax: <%= number_to_currency(@dtax) %></div>
+<div>Total: <%= number_to_currency(@dtotal) %></div>
+<div>&nbsp</div>
+<p>Click the button to return to the main page</p>
+<a class="btn btn-primary" href="/products">Return</a>

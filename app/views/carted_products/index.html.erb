@@ -1,6 +1,17 @@
-   <% @carted_products.each do |carted_product| %>
-   <h3>Item: </h3><%= carted_product.product.name %>
-   <h3>Price: </h3><%= carted_product.product.price %>
-   <h3>Quantity: </h3><%= carted_product.quantity %>
-   <div> &nbsp </div>
-   <% end %>
+<% @carted_products.each do |carted_product| %>
+  <div>
+    <strong>Item: </strong><%= carted_product.product.name %>
+  </div>
+  <div>
+    <strong>Price: </strong><%= carted_product.product.price %>
+  </div>
+  <div>
+    <strong>Quantity: </strong><%= carted_product.quantity %>
+  </div>
+  <div>
+    <%= link_to "Remove item from cart", "/carted_products/#{carted_product.id}", method: :delete %>
+  </div>
+  <div> &nbsp </div>
+<% end %>
+
+<%= button_to 'Buy Now', '/orders', method: :post %>

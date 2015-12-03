@@ -13,7 +13,7 @@
         <p>Sales Tax  <%= number_to_currency (@products.tax) %></p>
         <p>Total Price <%= number_to_currency (@products.total_price) %></p>
       </div>
-      <%= form_tag '/carted_products/', method: :post do %>
+        <%= form_tag '/carted_products/', method: :post do %>
         <div>
           <%= label_tag :quantity %>
           <%= text_field_tag :quantity %>
@@ -22,8 +22,8 @@
         <div>
           <%= hidden_field_tag :product_id, @products.id %>
         </div>
-       <%= button_tag 'Add to cart' %>
-       <% end %>
+          <%= button_tag 'Add to cart' %>
+      <% end %>
       <% @products.images.each do |image_object| %>
         <img src= <%= image_object.image_url %> alt = <%= @products.name %> >
       <% end %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  get '/products' => 'products#index'
   get '/' => 'products#index'
   get '/product' => 'products#index'
   get '/product/new' => 'products#new'
@@ -13,8 +14,10 @@ Rails.application.routes.draw do
   post '/orders' =>'orders#create'
   get '/orders/:id' => 'orders#show'
 
+
   get '/carted_products' => 'carted_products#index'
   post '/carted_products' => 'carted_products#create'
+  delete "/carted_products/:id" => 'carted_products#destroy'
 resources :products
 
 

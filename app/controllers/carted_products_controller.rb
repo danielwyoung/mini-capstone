@@ -6,11 +6,22 @@ class CartedProductsController < ApplicationController
       quantity: params[:quantity],
       status: "carted"
       )
-    flash[:success] = "You successfully added some stuff to your cart!"
+    @carted_product = CartedProduct.all
+    flash[:success] = "You successfully added the item(s) to your cart!"
     redirect_to "/products"
   end
 
   def index
-    @carted_products = CartedProduct.where("status = ?", "carted")
+    @carted_products = CartedProduct.where("status = ? AND user_id = ?", "carted", current_user.id)
+    if @carted_products.length == 0 
+      flash[:fail] = "You don't have anything in your cart yet"
+      redirect_to '/products'
+    end
+  end
+  def destroy
+    carted_product = CartedProduct.find_by(id: params[:id])
+    carted_product.update(status: "removed")
+    flash[:success] ="Product successfully removed"
+    redirect_to "/carted_products"
   end
 end
